@@ -111,9 +111,23 @@ function NoterLesEleve() {
     ];
 
     for (const elevetab of eleves) {
-        tableauNoteEleves.push(elevetab.Point);
+        console.log(elevetab.Prénom); // nom de l'élève
+        console.log(elevetab.Point); // note de l'élève
+        if (elevetab.Point < 60) {
+            elevetab.Note = 'E';
+        } else if (elevetab.Point < 70) {
+            elevetab.Note = 'D';
+        } else if (elevetab.Point < 80) {
+            elevetab.Note = 'C';
+        } else if (elevetab.Point < 90) {
+            elevetab.Note = 'B';
+        } else if (elevetab.Point < 100) {
+            elevetab.Note = 'A';
+        } else {
+            elevetab.log(`il n\'ya pas d\'attribution de note pour l'élève ${elevetab.Prénom}`);
+        }
     }
-    return tableauNoteEleves;
+    return eleves; // tableau des notes des élèves  avec les lettres correspondantes selon leurs points
 }
 
 function FizzBuzz() {
@@ -126,4 +140,23 @@ function FizzBuzz() {
             console.log(i, ':Buzz');
         }
     }
+}
+
+function HappyNumber() {
+    let nbVerifHeureux = 0;
+    let tabNombreHeureux = [];
+    while (nbVerifHeureux < 5) {
+        let sommeHeureux = 0;
+        do {
+            nbVerifHeureux = nbVerifHeureux * nbVerifHeureux;
+            carreNombre = nbVerifHeureux.split('');
+            for (const nombreCarre of carreNombre) {
+                somme += nombreCarre * nombreCarre;
+            }
+        } while (somme == 1)
+
+
+
+    }
+
 }
