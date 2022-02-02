@@ -111,8 +111,6 @@ function NoterLesEleve() {
     ];
 
     for (const elevetab of eleves) {
-        console.log(elevetab.Prénom); // nom de l'élève
-        console.log(elevetab.Point); // note de l'élève
         if (elevetab.Point < 60) {
             elevetab.Note = 'E';
         } else if (elevetab.Point < 70) {
@@ -127,7 +125,7 @@ function NoterLesEleve() {
             elevetab.log(`il n\'ya pas d\'attribution de note pour l'élève ${elevetab.Prénom}`);
         }
     }
-    return eleves; // tableau des notes des élèves  avec les lettres correspondantes selon leurs points
+    return eleves;
 }
 
 function FizzBuzz() {
