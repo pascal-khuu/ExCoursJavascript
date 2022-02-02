@@ -13,10 +13,11 @@ function SumOddFiboNumber(numMax) {
     let result = 0;
     let num = 0,
         num1 = 1,
-        somme = 1;
+        somme = 1; // F1+F0 de Fibonnaci pour n<2
     while (somme < numMax) {
+
         console.log('result1:', result);
-        result = num + num1;
+        result = num + num1; // Fn de Fibonnaci pour n>=2
         console.log('result2:', result);
         num = num1;
         num1 = result;
@@ -26,6 +27,7 @@ function SumOddFiboNumber(numMax) {
             somme += result;
             console.log('somme:', somme);
         }
+
     }
     return somme;
 }
@@ -36,17 +38,14 @@ function CenturyFromYear(year) {
 }
 
 function SortByLength(inputArray) {
-    let inputLength = [];
-    for (let i = 0; i <= inputArray.length - 1; i++) {
-        inputLength.push({ 'longueur': inputArray[i].length, 'nom': inputArray[i] });
-    }
+    // let inputLength = [];
+    // for (let i = 0; i <= inputArray.length - 1; i++) {
+    //     inputLength.push({ 'longueur': inputArray[i].length, 'nom': inputArray[i] });
+    // }
     // trier selon la longueur associé à un nom la tableau temporaire inputLength
-    inputLength.longueur.sort();
-    for (let i = 0; i <= inputLength.length - 1; i++) {
-        // Ajouter les noms du tableau trié selon la longueur inputLength
-        inputArray.push(inputLength.nom);
-    }
-
+    inputArray.sort(function(a, b) {
+        return a.length - b.length;
+    })
     return inputArray;
 
 }
