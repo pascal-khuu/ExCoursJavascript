@@ -30,6 +30,41 @@ function SumOddFiboNumber(numMax) {
 
     }
     return somme;
+} // faux ce n'est pas somme qui doit dépasser numMax(condition de sortie) mais result ne doit pas dépasser numMax.
+
+function sumOddFiboNumber2(numMax) {
+    let tab = [];
+    tab[0] = 0;
+    tab[1] = 1;
+    let nbtab = 2,
+        sommeImpair = 1;
+    let bool = true;
+
+    while (bool) {
+        tab[nbtab] = tab[nbtab - 1] + tab[nbtab - 2];
+        if ((tab[nbtab] % 2) !== 0) {
+            sommeImpair += tab[nbtab];
+
+        }
+        if (tab[nbtab] + tab[nbtab - 1] <= numMax) {
+            bool = true;
+        } else {
+            bool = false;
+        }
+        console.log(tab);
+        console.log("tabn", tab[nbtab]);
+
+        console.log("tabn-2", tab[nbtab - 2]);
+        console.log("tabn-1", tab[nbtab - 1]);
+
+        nbtab++;
+        console.log("nbtab", nbtab);
+        console.log("sommeimpair", sommeImpair);
+
+
+
+    }
+    return sommeImpair;
 }
 
 function CenturyFromYear(year) {
@@ -141,20 +176,34 @@ function FizzBuzz() {
 }
 
 function HappyNumber() {
-    let nbVerifHeureux = 0;
+    let nbHeureux = 1;
     let tabNombreHeureux = [];
-    while (nbVerifHeureux < 5) {
-        let sommeHeureux = 0;
+    while (tabNombreHeureux.length < 5) {
+        let compteur = 0;
         do {
-            nbVerifHeureux = nbVerifHeureux * nbVerifHeureux;
-            carreNombre = nbVerifHeureux.split('');
-            for (const nombreCarre of carreNombre) {
-                somme += nombreCarre * nombreCarre;
-            }
-        } while (somme == 1)
+            compteur = sumCarreeChiffre(nbHeureux);
+            console.log('compteur', compteur);
 
+            nbHeureux = compteur;
+            console.log('nbheureux', nbHeureux);
+        } while (compteur !== 46 && compteur !== 37 && compteur != 58 && compteur !== 89 && compteur != 145 && compteur !== 42 & compteur !== 20 && compteur != 4 && compteur !== 1)
 
-
+        if (compteur == 1) {
+            tabNombreHeureux.push(nbHeureux);
+        }
+        nbHeureux++;
     }
+    return tabNombreHeureux;
+}
 
+
+function sumCarreeChiffre(nb) {
+    let somme = 0;
+    nb = nb * nb;
+    let carreNombreString = nb.toString().split('');
+    for (let i = 0; i <= carreNombreString.length - 1; i++) {
+        somme += parseInt(carreNombreString[i]) * parseInt(carreNombreString[i]);
+        console.log('somme', somme);
+    }
+    return somme;
 }
